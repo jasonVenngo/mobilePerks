@@ -1,0 +1,337 @@
+/* V
+this is a test 
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-v {
+	border: 1px solid 		#333 /*{a-bar-border}*/;
+	background: 			#111 /*{a-bar-background-color}*/;
+	color: 					#fff /*{a-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{a-bar-shadow-x}*/ -1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #000 /*{a-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c /*{a-bar-background-start}*/), to( #111 /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
+}
+.ui-bar-v,
+.ui-bar-v input,
+.ui-bar-v select,
+.ui-bar-v textarea,
+.ui-bar-v button {
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+}
+.ui-bar-v .ui-link-inherit {
+	color: #fff /*{a-bar-color}*/;
+}
+.ui-bar-v a.ui-link {
+	color: #7cc4e7 /*{a-bar-link-color}*/;
+	font-weight: bold;
+}
+.ui-bar-v a.ui-link:visited {
+    color: #2489ce /*{a-bar-link-visited}*/;
+}
+.ui-bar-v a.ui-link:hover {
+	color: #2489ce /*{a-bar-link-hover}*/;
+}
+.ui-bar-v a.ui-link:active {
+	color: #2489ce /*{a-bar-link-active}*/;
+}
+.ui-body-v,
+.ui-overlay-v {
+	border: 1px solid 		#444 /*{a-body-border}*/;
+	background: 			#4a4a4a /*{a-body-background-color}*/;
+	color: 					#fff /*{a-body-color}*/;
+	text-shadow: 0 /*{a-body-shadow-x}*/ 1px /*{a-body-shadow-y}*/ 0 /*{a-body-shadow-radius}*/ #111 /*{a-body-shadow-color}*/;
+	font-weight: normal;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#829f11), color-stop(20%,#c9dc22), color-stop(80%,#829f11)); /* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* IE10 */
+	background-image:      -o-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #829f11, #c9dc22 20%, #829f11 80% );	
+}
+.ui-overlay-v {
+	background-image: none;
+	border-width: 0;
+}
+.ui-body-v,
+.ui-body-v input,
+.ui-body-v select,
+.ui-body-v textarea,
+.ui-body-v button {
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+}
+.ui-body-v .ui-link-inherit {
+	color: 	#fff /*{a-body-color}*/;
+}
+.ui-body-v .ui-link {
+	color: #2489ce /*{a-body-link-color}*/;
+	font-weight: bold;
+}
+.ui-body-v .ui-link:visited {
+    color: #2489ce /*{a-body-link-visited}*/;
+}
+.ui-body-v .ui-link:hover {
+	color: #2489ce /*{a-body-link-hover}*/;
+}
+.ui-body-v .ui-link:active {
+	color: #2489ce /*{a-body-link-active}*/;
+}
+.ui-btn-up-v {
+	border: 1px solid 		#111 /*{a-bup-border}*/;
+	background: 			#333 /*{a-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#fff /*{a-bup-color}*/;
+	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #111 /*{a-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #444 /*{a-bup-background-start}*/), to( #2d2d2d /*{a-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #444 /*{a-bup-background-start}*/, #2d2d2d /*{a-bup-background-end}*/);
+}
+.ui-btn-up-v:visited,
+.ui-btn-up-v a.ui-link-inherit {
+	color: 					#fff /*{a-bup-color}*/;
+}
+.ui-btn-hover-v {
+	border: 1px solid 		#000 /*{a-bhover-border}*/;
+	background: 			#444 /*{a-bhover-background-color}*/;
+	font-weight: bold;
+	color: 					#fff /*{a-bhover-color}*/;
+	text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #111 /*{a-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #555 /*{a-bhover-background-start}*/), to( #383838 /*{a-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #555 /*{a-bhover-background-start}*/, #383838 /*{a-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #555 /*{a-bhover-background-start}*/, #383838 /*{a-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #555 /*{a-bhover-background-start}*/, #383838 /*{a-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #555 /*{a-bhover-background-start}*/, #383838 /*{a-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #555 /*{a-bhover-background-start}*/, #383838 /*{a-bhover-background-end}*/);
+}
+.ui-btn-hover-v:visited,
+.ui-btn-hover-v:hover,
+.ui-btn-hover-v a.ui-link-inherit {
+	color: 					#fff /*{a-bhover-color}*/;
+}
+.ui-btn-down-v {
+	border: 1px solid 		#000 /*{a-bdown-border}*/;
+	background: 			#222 /*{a-bdown-background-color}*/;
+	font-weight: bold;
+	color: 					#fff /*{a-bdown-color}*/;
+	text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/ #111 /*{a-bdown-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #202020 /*{a-bdown-background-start}*/), to( #2c2c2c /*{a-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #202020 /*{a-bdown-background-start}*/, #2c2c2c /*{a-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #202020 /*{a-bdown-background-start}*/, #2c2c2c /*{a-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #202020 /*{a-bdown-background-start}*/, #2c2c2c /*{a-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #202020 /*{a-bdown-background-start}*/, #2c2c2c /*{a-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #202020 /*{a-bdown-background-start}*/, #2c2c2c /*{a-bdown-background-end}*/);
+}
+.ui-btn-down-v:visited,
+.ui-btn-down-v:hover,
+.ui-btn-down-v a.ui-link-inherit {
+	color: 					#fff /*{a-bdown-color}*/;
+}
+.ui-btn-up-v,
+.ui-btn-hover-v,
+.ui-btn-down-v {
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	text-decoration: none;
+}
+
+.textNormal3 {
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	font-size:11px;
+	line-height: 13px;
+	text-shadow: none;
+}
+.siteLogoPod {border:solid;border-width:1px;border-color:#e4e9ed;background-color:#FFF;padding:6px;margin:0px 0 6px 0;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;box-shadow: 2px 2px 10px #6d8803;}
+
+#lst_tier1 li:first-child {  /* sets the first row taller than the rest to accomodate featured perk.  */
+   height: 140px;
+}
+
+#lst_tier1 li:first-child .ui-link-inherit { 
+	min-height: 140px;
+	padding-left: 140px;
+}
+
+#lst_tier1 li:first-child .ui-li-thumb {  /* sets the first icon larger then the rest of the list to accomodate featured perk.  */
+	margin-top: 8px;
+	max-height: 120px;
+	max-width: 120px;
+	margin-left:4px;
+}
+
+#lst_tier1 li:first-child .ui-li-desc {   /* sets the first description white and strips effect.  */
+	color:white;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_tier1 li:first-child .ui-li-heading {  /* sets the first heading white and strips effect.  */
+	color:white;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_tier1 li .ui-li-heading {   /* sets the rest of the titles to dark blue.  */
+	color:#254f71;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_tier1 li .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
+	color:#f1542c;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_tier1 li {  /* sets the first row taller than the rest to accomodate featured perk.  */
+   height: 90px;
+}
+
+#lst_tier1 li .ui-li-thumb {  /* sets the rest of the icons with a bit of top margin  */
+	margin-top:4px;
+	margin-left:4px;
+}
+
+
+#lst_clist li:first-child {  /* sets the first row taller than the rest to accomodate featured perk.  */
+   height: 140px;
+   background-color:blue;
+}
+
+#lst_clist li:first-child .ui-link-inherit { 
+	padding-left:140px;
+	padding-top:8px;
+	height:120px;
+}
+
+#lst_clist li:first-child .ui-li-thumb {  /* sets the first icon larger then the rest of the list to accomodate featured perk.  */
+	max-height: 120px;
+	max-width: 120px;
+	padding-top:4px;
+	padding-left:4px;
+}
+
+#lst_clist li:first-child .ui-li-desc {   /* sets the first description white and strips effect.  */
+	color:white;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_clist li:first-child .ui-li-heading {  /* sets the first heading white and strips effect.  */
+	color:white;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_clist li .ui-li-heading {   /* sets the rest of the titles to dark blue.  */
+	color:#254f71;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_clist li .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
+	color:#f1542c;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#lst_clist li {  /* sets the first row taller than the rest to accomodate featured perk.  */
+   height: 90px;
+}
+
+#lst_clist li .ui-li-thumb {  /* sets the rest of the icons with a bit of top margin  */
+	margin-top:4px;
+	margin-left:4px;
+}
+
+div .ui-btn-inner .ui-li {padding:0px;}
+
+.venngoIcons .ui-btn .ui-btn-inner  { padding-top: 40px !important; margin-left:0px; }
+.venngoIcons .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+.venngoIcons .ui-btn-right .ui-btn-inner {padding-top: 5px !important; margin-left:5px;}
+.venngoIcons .ui-btn-right .ui-icon { height: 20px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
+.venngoIcons .ui-btn-left .ui-btn-inner {padding-top: 5px !important; margin-left:5px;}
+.venngoIcons .ui-btn-left .ui-icon { height: 20px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
+
+#tabs {margin-left:0px; margin-right:0px;}
+
+#home .ui-icon { background:  url(../images/app/tabs/home.png) 50% 50% no-repeat; background-size: 25px 25px; }
+#map .ui-icon { background:  url(../images/app/tabs/map.png) 50% 50% no-repeat; background-size: 25px 27px;  }
+#cats .ui-icon { background:  url(../images/app/tabs/cats.png) 50% 50% no-repeat;  background-size: 25px 24px; }
+#favs .ui-icon { background:  url(../images/app/tabs/favs.png) 50% 50% no-repeat;  background-size: 17px 27px; }
+#settings .ui-icon { background:  url(../images/app/tabs/settings.png) 50% 50% no-repeat;  background-size: 25px 25px; }
+
+#perk_tagline {	
+	font-size:14px;
+	line-height:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#f1542c;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.perk_tagline {	
+	font-size:14px;
+	line-height:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#f1542c;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+#valid_green {	
+	font-size:16px;
+	line-height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#697111;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.textNormal {	
+	font-size:13px;
+	line-height:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	text-decoration: none;
+	text-shadow: none;
+	text-align: left;
+	color: rgb(51, 51, 51); 
+	-webkit-font-smoothing: antialiased;
+}
+
+#redeem_box {
+	margin:6px 6px 6px 6px;
+	padding:12px;
+	-webkit-border-radius: 8px;
+	background-color:#fff;
+	background-image:url('http://www.venngo.com/global/images/perkBackgroundMobile.gif');
+	background-repeat:no-repeat;
+	background-position:0px 140px;
+	-webkit-box-shadow: 0px 3px 5px #6a9062;
+}
+
+.page_gradient {
+	padding:0px;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#829f11), color-stop(20%,#c9dc22), color-stop(80%,#829f11)); /* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* IE10 */
+	background-image:      -o-linear-gradient( #829f11, #c9dc22 20%, #829f11 80% ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #829f11, #c9dc22 20%, #829f11 80% );		
+}
+
+.remove_padding {
+	padding:0px;
+}
+
+#redeem_group {
+	margin-left:6px;
+	margin-right:6px;
+}
