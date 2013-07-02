@@ -452,12 +452,24 @@
 											data,
 											function( index, perk )
 											{
+												console.log(perk);
 												var style = null;
 												
-												if ( index == 0 )
+												if ( index == 0 && perk.tier == 1 )
 													style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
 												
-												$( '#lst_clist' ).append( '<li data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+												switch( perk.tier )
+												{
+												case 3:
+													$( '#lst_clist' ).append( '<li class="tier_3" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+												break;
+												case 2:
+													$( '#lst_clist' ).append( '<li class="tier_2" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+												break;
+												default:
+													$( '#lst_clist' ).append( '<li class="tier_1" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+												}
+												
 											}
 										);
 										
@@ -535,7 +547,6 @@
 					success: function( more_html ) 
 					{
 						$.each( more_html.service, function(i, item) {
-							console.log(item);
 							$( 'ul#features' ).append( '<li>' + item + '</li>' );
 						} );
 						
@@ -683,7 +694,75 @@
 				$( 'ul#features' ).empty();
 				$( 'div#tip_details' ).empty();
 			}
-		);		
+		);	
+		
+		$( '#in_store_redeem' ).live(
+				'pagebeforeshow',
+				function( event )
+				{
+					var user_data = check_auth();
+			
+					if ( $( '#pg_detail' ).data( 'identity' ) == undefined )
+						history.back();	
+
+					var authHeader = 'OAuth, auth_token=' + user_data.auth_token
+					    + ', public_key=' + app_data['public_key']  
+						+ ', public_secret=' + app_data['public_secret'];
+						
+					$.mobile.showPageLoadingMsg( 
+						'b', 
+						'Getting Perk Info...'
+					);
+					
+					$( '#lst_redeem' ).empty();
+					
+					$.ajax({
+						type: 'GET',
+						url: app_data['api_url'] + app_data['perk_use_url'] + $( '#pg_detail' ).data( 'identity' ) + '/in_store'  + '.json',
+						beforeSend: function( xhr )
+						{
+							xhr.setRequestHeader( "Authorization", authHeader );
+						},
+						error: function( xhr, status, error )
+						{
+							if ( xhr.status == 401 )
+							{
+								$.mobile.changePage( '#dlg_expired' );
+							}
+						},
+						dataType: 'json',
+						success: function( redeem_info ) 
+						{
+							console.log(redeem_info);
+							$( '#perk_code' ).text( redeem_info.coupon_code[0] );
+							$( '#in_store_tagline' ).text( $( '#perk_tagline' ).text() );
+							$( '#in_store_details' ).text( $( '#perk_details' ).text() );
+							
+							$.each( redeem_info.instructions.in_store, function(i, item) 
+							{
+								$( '#in_store_instructions' ).append('<li>' + item + '</li>');
+							});
+							
+							$.each( redeem_info.barcode, function( i, item )
+							{
+								$( '#in_store_tagline' ).after('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
+							});
+							
+						}
+					});
+				}
+			);
+		
+		$( "#in_store_redeem" ).live(
+				'pagehide',
+				function( event ) 
+				{
+					$( '#perk_code' ).text( null );
+					$( '#in_store_tagline' ).text( null );
+					$( '#in_store_details' ).text( null );
+					$( '#in_store_instructions' ).empty();
+				}
+			);
 		
 		$( '#pg_use' ).live(
 			'pagebeforeshow',

@@ -245,15 +245,14 @@
 						</td>
 						<td valign="middle">
 							<div id="valid_green" style="margin-top:12px;">in store <i>perk</i> code:</div>
-							<div id="perk_code" class="perk_tagline">123412341234</div>
+							<div id="perk_code" class="perk_tagline"></div>
 						</td>
 					</tr>
 				</table>				
-				<div id="perk_tagline" class="perk_tagline">Before your next night at the movies be sure to buy your discounted Empire Theatres movie tickets and save over $20 based on an average purchase of 8 tickets with LetterMail postage - a savings of over 20%. They are just a click away and we'll deliver them right to your door.</div>
-				<img src="http://cache.venngo.com/global/logos/perk/barcode000010511.png" style="max-width:900px;" width="100%" />
+				<div id="in_store_tagline" class="perk_tagline"></div>
 			</div>
 			<div style="padding:12px;">
-				<div id="perk_details" class="textNormal" style="color:white;">La Vie en Rose is your destination for everyday essentials, lounging looks or gift ideas. Shop online or in store! Offer valid on regular priced and sale merchandise, before tax. Cannot be combined with any other promotion and is not valid to purchase gift cards or Roses Of Hope Foundation items.</div>
+				<div id="in_store_details" class="textNormal" style="color:white;"></div>
 				<div style="font-family:Arial, Helvetica, sans-serif;font-size: 8pt;line-height:10pt;color:#587f9e;padding:6px;margin:12px 0px 12px 0; -moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;background-color: #FFFFFF;-webkit-box-shadow: 0px 3px 5px #6a9062;">
 					<table>
 						<tr>
@@ -269,12 +268,7 @@
 			
 				<div>
 					<div id="valid_green" style="color:white;margin-top:12px;">in store</div>
-					<ol class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;">
-						<li>Click the "print this perk" button at the top of this page.</li>
-						<li>A new window will open with a printable version of the perk with information on where the perk is offered.</li>
-						<li>When you are finished printing you can close the window.</li>
-						<li>Visit one of the valid boutique locations noted on the perk.</li>
-						<li>Present your perk printed information at the cash in one of our boutiques prior to purchase.</li>
+					<ol id="in_store_instructions" class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;">
 					</ol>
 				</div>				
 			</div>
@@ -547,17 +541,29 @@
       </div>
   </div>
 
-  <div id="dlg_favourite" data-role="dialog">
-    <div data-role="header" data-theme="v" class="venngoIcons">
-      <h1>Add to Favourites</h1> 
-    </div> 
-      <div data-role="content">
-        <p id='dlg_favourite_msg'></p>
-      <div style="text-align: center;" data-role="controlgroup" data-type="horizontal">
-        <a id='favourite_yes' href="#" data-role="button">Yes</a>
-        <a id='favourite_no' href="#" data-role="button">No</a>
-      </div>        
-    </div>
-  </div>
+	<div id="dlg_favourite" data-role="dialog" data-close-btn="none">
+		<div data-role="header" data-theme="v" class="venngoIcons">
+			<h1>Add to Favourites</h1> 
+		</div> 
+	    <div data-role="content">
+	    	<p id='dlg_favourite_msg'></p>
+			<div style="text-align: center;" data-role="controlgroup" data-type="horizontal">
+				<a id='favourite_yes' href="#" data-role="button">Yes</a>
+				<a id='favourite_no' href="#" data-role="button">No</a>
+			</div>	    	
+		</div>
+	</div>
+
+	<div id="dlg_expired" data-role="dialog" data-close-btn="none">
+		<div data-role="header" data-theme="d">
+			<h1>Add to Favourites</h1> 
+		</div> 
+	    <div data-role="content">
+	    	<p>Your login session has expired.  You will need to enter your username and password to continue using this applicaiton.</p>
+			<div style="text-align: center;" data-role="controlgroup" data-type="horizontal">
+				<a id='expired_continue' href="#" data-role="button">Continue</a>
+			</div>	    	
+		</div>
+	</div>
   </body>
 </html>
