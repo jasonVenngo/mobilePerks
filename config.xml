@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.0.0" id="VenngoApp">
+    <name>Venngo</name>
+    <author>Venngo</author>
+    <description>The classic first app</description>
+    <access uri="*" subdomains="true"/>
+    <access uri="http://maps.google.com" subdomains="true" />
+    <access uri="http://maps.googleapis.com" subdomains="true" />
+    <access uri="http://cache.venngo.com" subdomains="true" />
+    <access uri="http://api.venngo.com" subdomains="true" />
+    <access uri="http://www.venngo.com" subdomains="true"/>
+    <access uri="http://maps.gstatic.com" subdomains="true"/>
+    <rim:permissions>
+    	<rim:permit>access_location_services</rim:permit>
+    </rim:permissions> 
+    <rim:splash src="images/Default.png" />
+    <icon src="images/appicon.png"/>
+    <content src="start.html"/>
+</widget>

@@ -458,7 +458,7 @@
 												if ( index == 0 && perk.tier == 1 )
 													style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
 												
-												switch( perk.tier )
+												switch( parseInt(perk.tier) )
 												{
 												case 3:
 													$( '#lst_clist' ).append( '<li class="tier_3" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
@@ -1031,7 +1031,7 @@
 							data,
 							function( index, perk )
 							{
-								$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favbutton_selected.png" /><h3>' + perk.title + '</h3></a></li>' );
+								$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
 							}
 						);
 						
