@@ -250,11 +250,16 @@ this is a test
 div .ui-btn-inner .ui-li {padding:0px;}
 
 .venngoIcons .ui-btn .ui-btn-inner  { padding-top: 40px !important; margin-left:0px; }
-.venngoIcons .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-home { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-map { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-cats { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-favs { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-settings { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+
 .venngoIcons .ui-btn-right .ui-btn-inner {padding-top: 5px !important; margin-left:5px;}
-.venngoIcons .ui-btn-right .ui-icon { height: 20px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
+.venngoIcons .ui-btn-right .ui-icon { height: 18px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
 .venngoIcons .ui-btn-left .ui-btn-inner {padding-top: 5px !important; margin-left:5px;}
-.venngoIcons .ui-btn-left .ui-icon { height: 20px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
+.venngoIcons .ui-btn-left .ui-icon { height: 18px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
 
 #tabs {margin-left:0px; margin-right:0px;}
 
@@ -334,4 +339,37 @@ div .ui-btn-inner .ui-li {padding:0px;}
 #redeem_group {
 	margin-left:6px;
 	margin-right:6px;
+}
+
+ul#lst_cats li a img {
+	width:75px;
+	height:75px;
+	margin-left:4px;
+	margin-top:4px;
+}
+
+#lst_clist li.tier_2 .ui-li-desc {
+	color:#6a7410;
+}
+
+
+#lst_clist li.tier_3 {
+	background-image:none;
+	background:#e4e5e9;	
+}
+
+#lst_clist li.tier_3 .ui-li-heading {
+	font-size:14px;
+	color:#587f9d;
+}
+#lst_clist li.tier_3 .ui-li-desc {
+	color:#587f9d;
+}
+
+ul#lst_favourite li img.ui-li-thumb {
+	width:20px;
+	height:33px;
+	margin-left:6px;
+	margin-top:0px;
+	top:0px;
 }
