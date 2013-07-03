@@ -165,6 +165,8 @@
 				
 				var arr_perks = [];
 				
+				var search_query = null;
+				
 				var authHeader = 'OAuth, auth_token=' + user_data.auth_token
 				    + ', public_key=' + app_data['public_key']  
 					+ ', public_secret=' + app_data['public_secret'] ;
@@ -175,6 +177,122 @@
 				);
 				
 				$('#lst_tier1').empty();
+				
+				// Search Functionality	
+				$( '#fld_search' ).keypress( function( e ) 
+				{
+				    if( e.which == 13 )
+				    {
+				    	$('#lst_tier1').empty();
+				    	
+				    	search_query = $( '#fld_search' ).val()
+				    	
+				    	$.ajax({
+				        	type: 'POST',
+				        	url: app_data['api_url'] + app_data['search_url'] + '/0/',
+				        	data: { 
+				        		search_query: search_query,
+				        		longitude: user_data.location_longitude,
+								latitude: user_data.location_latitude,
+								range: user_data.location_range,
+								perk_list: arr_perks.join()
+				        	},
+				        	beforeSend: function( xhr )
+				        	{
+				        		xhr.setRequestHeader( "Authorization", authHeader );
+				        	},
+				        	error: function( xhr, status, error )
+				        	{
+				        		if ( xhr.status == 401 )
+				        		{
+				        			$.mobile.changePage( '#dlg_expired' );
+				        		}
+				        	},
+				        	dataType: 'json',
+				        	success: function( data )
+				        	{
+				        		$.each(
+				        			data,
+				        			function( index, perk )
+				        			{
+				        				var style = null;
+										
+										if ( index == 0 )
+											style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
+										
+										$( '#lst_tier1' ).append( '<li data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+										
+										arr_perks.push( perk.perk_id );
+				        			}
+				        		);
+				        		
+				        		if ( data.length > 0 )
+									$( '#lst_tier1' ).append( '<li class="show_me_more"><a href="#"><h3>Show me more perks</h3></a></li>' );
+								
+								$( "#lst_tier1" ).listview( "refresh" );
+
+								$( '#lst_tier1 li' ).click(
+									function( event )
+									{
+										if ( $( this ).hasClass( 'show_me_more' ) )
+										{
+											$( this ).remove();
+											
+											$.mobile.showPageLoadingMsg( 
+												'b', 
+												'Finding Perks...'
+											);
+												
+											$.ajax({
+												type: 'POST',
+												url: app_data['api_url'] + app_data['home_url'],
+												data: {
+									    			longitude: user_data.location_longitude,
+													latitude: user_data.location_latitude,
+													range: user_data.location_range,
+													perk_list: arr_perks.join()
+									    		},
+												beforeSend: function( xhr )
+												{
+													xhr.setRequestHeader( "Authorization", authHeader );
+												},
+												error: function( xhr, status, error )
+												{
+													alert( xhr.responseText + ' ' + status + ' ' + error );
+												},
+												dataType: 'json',
+												success: function( data ) 
+												{
+													$.each( 
+														data,
+														function( index, perk )
+														{
+															$( '#lst_tier1' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+															
+															arr_perks.push( perk.perk_id );
+														}
+													);
+													
+													$( "#lst_tier1" ).listview( "refresh" );
+
+													$.mobile.hidePageLoadingMsg();
+												}
+											});
+										}
+										else
+										{
+											$( '#pg_detail' ).data( 'identity', $( this ).data( "identity" ) );
+										
+											$( '#pg_detail_title' ).text( $( this ).find( 'h3' ).text() );
+										}
+									}
+								);
+								
+								$.mobile.hidePageLoadingMsg();
+				        	}
+				        });
+				    }
+				});
 				
 				$.ajax({
 					type: 'POST',
@@ -458,14 +576,14 @@
 												if ( index == 0 && perk.tier == 1 )
 													style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
 												
-												switch( perk.tier )
+												switch( parseInt(perk.tier) )
 												{
 												case 3:
 													$( '#lst_clist' ).append( '<li class="tier_3" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
-												break;
+													break;
 												case 2:
 													$( '#lst_clist' ).append( '<li class="tier_2" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
-												break;
+													break;
 												default:
 													$( '#lst_clist' ).append( '<li class="tier_1" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
 												}
@@ -604,7 +722,6 @@
 						if( perk_info.images.length > 0 )
 						{
 							$.each( perk_info.images, function(i, item) {
-								console.log(item.image_url);
 								$( '#perk_images' ).append( '<img width="80" src="' + item.image_url + '" /><br />' );
 							} );
 						}
@@ -733,8 +850,20 @@
 						dataType: 'json',
 						success: function( redeem_info ) 
 						{
-							console.log(redeem_info);
-							$( '#perk_code' ).text( redeem_info.coupon_code[0] );
+							$.mobile.hidePageLoadingMsg();
+							
+							$( '#in_store_perk_logo' ).attr( 'src', redeem_info.logo );
+							
+							if( redeem_info.coupon_code )
+							{
+								$( 'div.perk_tagline' ).text( redeem_info.coupon_code[0] );
+								$( 'td#perk_code' ).show();
+							}
+							else
+							{
+								$( 'td#perk_code' ).hide();
+							}
+							
 							$( '#in_store_tagline' ).text( $( '#perk_tagline' ).text() );
 							$( '#in_store_details' ).text( $( '#perk_details' ).text() );
 							
@@ -745,9 +874,14 @@
 							
 							$.each( redeem_info.barcode, function( i, item )
 							{
-								$( '#in_store_tagline' ).after('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
+								$( '#in_store_code' ).html('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
 							});
 							
+							if( redeem_info.mobile_device )
+							{
+								if( redeem_info.mobile_device[0] == "1" )
+									$( '#in_store_mobile_device' ).show();
+							}
 						}
 					});
 				}
@@ -757,10 +891,263 @@
 				'pagehide',
 				function( event ) 
 				{
-					$( '#perk_code' ).text( null );
+					$( 'div.perk_tagline' ).text( null );
+					$( '#in_store_perk_logo' ).empty();
 					$( '#in_store_tagline' ).text( null );
 					$( '#in_store_details' ).text( null );
 					$( '#in_store_instructions' ).empty();
+					$( '#in_store_code' ).empty();
+				}
+			);
+		
+		$( '#online_redeem' ).live(
+				'pagebeforeshow',
+				function( event )
+				{
+					var user_data = check_auth();
+			
+					if ( $( '#pg_detail' ).data( 'identity' ) == undefined )
+						history.back();	
+
+					var authHeader = 'OAuth, auth_token=' + user_data.auth_token
+					    + ', public_key=' + app_data['public_key']  
+						+ ', public_secret=' + app_data['public_secret'];
+						
+					$.mobile.showPageLoadingMsg( 
+						'b', 
+						'Getting Perk Info...'
+					);
+					
+					$( '#lst_redeem' ).empty();
+					
+					$.ajax({
+						type: 'GET',
+						url: app_data['api_url'] + app_data['perk_use_url'] + $( '#pg_detail' ).data( 'identity' ) + '/online'  + '.json',
+						beforeSend: function( xhr )
+						{
+							xhr.setRequestHeader( "Authorization", authHeader );
+						},
+						error: function( xhr, status, error )
+						{
+							if ( xhr.status == 401 )
+							{
+								$.mobile.changePage( '#dlg_expired' );
+							}
+						},
+						dataType: 'json',
+						success: function( redeem_info ) 
+						{
+							$.mobile.hidePageLoadingMsg();
+							
+							$( '#online_perk_logo' ).attr( 'src', redeem_info.logo );
+							
+							if( redeem_info.coupon_code )
+							{
+								$( 'div.online_perk_code' ).text( redeem_info.coupon_code[0] );
+								$( '#online_perk_code' ).show();
+							}
+							else
+							{
+								$( '#online_perk_code' ).hide();
+							}
+							
+							$( '#online_perk_tagline' ).text( $( '#perk_tagline' ).text() );
+							$( '#online_perk_details' ).text( $( '#perk_details' ).text() );
+							
+							$.each( redeem_info.instructions.online, function(i, item) 
+							{
+								$( '#online_instructions' ).append('<li>' + item + '</li>');
+							});
+							
+							$.each( redeem_info.barcode, function( i, item )
+							{
+								$( '#online_code' ).html('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
+							});
+						}
+					});
+				}
+			);
+		
+		$( "#online_redeem" ).live(
+				'pagehide',
+				function( event ) 
+				{
+					$( 'div.online_perk_code' ).text( null );
+					$( '#online_perk_tagline' ).text( null );
+					$( '#online_perk_details_details' ).text( null );
+					$( '#online_instructions' ).empty();
+					$( '#online_perk_logo' ).empty();
+					$( '#online_code' ).empty();
+				}
+			);
+		
+		$( '#phone_redeem' ).live(
+				'pagebeforeshow',
+				function( event )
+				{
+					var user_data = check_auth();
+			
+					if ( $( '#pg_detail' ).data( 'identity' ) == undefined )
+						history.back();	
+
+					var authHeader = 'OAuth, auth_token=' + user_data.auth_token
+					    + ', public_key=' + app_data['public_key']  
+						+ ', public_secret=' + app_data['public_secret'];
+						
+					$.mobile.showPageLoadingMsg( 
+						'b', 
+						'Getting Perk Info...'
+					);
+					
+					$( '#lst_redeem' ).empty();
+					
+					$.ajax({
+						type: 'GET',
+						url: app_data['api_url'] + app_data['perk_use_url'] + $( '#pg_detail' ).data( 'identity' ) + '/online'  + '.json',
+						beforeSend: function( xhr )
+						{
+							xhr.setRequestHeader( "Authorization", authHeader );
+						},
+						error: function( xhr, status, error )
+						{
+							if ( xhr.status == 401 )
+							{
+								$.mobile.changePage( '#dlg_expired' );
+							}
+						},
+						dataType: 'json',
+						success: function( redeem_info ) 
+						{
+							$.mobile.hidePageLoadingMsg();
+							
+							$( '#phone_perk_logo' ).attr( 'src', redeem_info.logo );
+							
+							if( redeem_info.coupon_code )
+							{
+								$( 'div.phone_perk_code' ).text( redeem_info.coupon_code[0] );
+								$( '#phone_perk_code' ).show();
+							}
+							else
+							{
+								$( '#phone_perk_code' ).hide();
+							}
+							
+							$( '#phone_perk_tagline' ).text( $( '#perk_tagline' ).text() );
+							$( '#phone_perk_details' ).text( $( '#perk_details' ).text() );
+							
+							$.each( redeem_info.instructions.telephone, function(i, item) 
+							{
+								$( '#phone_instructions' ).append('<li>' + item + '</li>');
+							});
+							
+							$.each( redeem_info.barcode, function( i, item )
+							{
+								$( '#phone_code' ).html('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
+							});
+							
+							$( '#phone_link' ).attr( 'href', 'tel:' + redeem_info.phone_number[0] );
+							$( '#phone_link' ).text( redeem_info.phone_number[0] );
+						}
+					});
+				}
+			);
+		
+		$( "#phone_redeem" ).live(
+				'pagehide',
+				function( event ) 
+				{
+					$( 'div.phone_perk_code' ).text( null );
+					$( '#phone_perk_tagline' ).text( null );
+					$( '#phone_perk_details_details' ).text( null );
+					$( '#phone_instructions' ).empty();
+					$( '#phone_perk_logo' ).empty();
+					$( '#phone_code' ).empty();
+					$( '#phone_link' ).empty();
+				}
+			);
+		
+		$( '#email_redeem' ).live(
+				'pagebeforeshow',
+				function( event )
+				{
+					var user_data = check_auth();
+			
+					if ( $( '#pg_detail' ).data( 'identity' ) == undefined )
+						history.back();	
+
+					var authHeader = 'OAuth, auth_token=' + user_data.auth_token
+					    + ', public_key=' + app_data['public_key']  
+						+ ', public_secret=' + app_data['public_secret'];
+						
+					$.mobile.showPageLoadingMsg( 
+						'b', 
+						'Getting Perk Info...'
+					);
+					
+					$( '#lst_redeem' ).empty();
+					
+					$.ajax({
+						type: 'GET',
+						url: app_data['api_url'] + app_data['perk_use_url'] + $( '#pg_detail' ).data( 'identity' ) + '/online'  + '.json',
+						beforeSend: function( xhr )
+						{
+							xhr.setRequestHeader( "Authorization", authHeader );
+						},
+						error: function( xhr, status, error )
+						{
+							if ( xhr.status == 401 )
+							{
+								$.mobile.changePage( '#dlg_expired' );
+							}
+						},
+						dataType: 'json',
+						success: function( redeem_info ) 
+						{
+							$.mobile.hidePageLoadingMsg();
+							
+							$( '#email_perk_logo' ).attr( 'src', redeem_info.logo );
+							
+							if( redeem_info.coupon_code )
+							{
+								$( 'div.email_perk_code' ).text( redeem_info.coupon_code[0] );
+								$( '#email_perk_code' ).show();
+							}
+							else
+							{
+								$( '#email_perk_code' ).hide();
+							}
+							
+							$( '#email_perk_tagline' ).text( $( '#perk_tagline' ).text() );
+							$( '#email_perk_details' ).text( $( '#perk_details' ).text() );
+							
+							$.each( redeem_info.instructions.email, function(i, item) 
+							{
+								$( '#email_instructions' ).append('<li>' + item + '</li>');
+							});
+							
+							$.each( redeem_info.barcode, function( i, item )
+							{
+								$( '#email_code' ).html('<img src="' + item.barcode_url + '" style="max-width:900px;" width="100%" />');
+							});
+							
+							$( '#email_link' ).attr( 'href', 'mailto:' + redeem_info.email[0] );
+							$( '#email_link' ).text( redeem_info.email[0] );
+						}
+					});
+				}
+			);
+		
+		$( "#email_redeem" ).live(
+				'pagehide',
+				function( event ) 
+				{
+					$( 'div.email_perk_code' ).text( null );
+					$( '#email_perk_tagline' ).text( null );
+					$( '#email_perk_details_details' ).text( null );
+					$( '#email_instructions' ).empty();
+					$( '#email_perk_logo' ).empty();
+					$( '#email_code' ).empty();
+					$( '#email_link' ).empty();
 				}
 			);
 		
