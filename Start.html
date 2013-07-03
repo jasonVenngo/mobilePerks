@@ -168,8 +168,8 @@
 				<div id="redeem_group">
 					<a href="#in_store_redeem" data-role="button" data-theme="v" id="store" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_instore.png' /> redeem in store</a>
 					<a href="#online_redeem" data-role="button" data-theme="v" id="online" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_online.png' /> redeem by online</a>
-					<a href="#phone_redeem" data-role="button" data-theme="v" id="phone" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_phone.png' /> redeem by phone</a>
-					<a href="#email_redeem" data-role="button" data-theme="v" id="email" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_email.png' /> redeem by email</a>
+					<a href="#in_store_redeem" data-role="button" data-theme="v" id="phone" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_phone.png' /> redeem by phone</a>
+					<a href="#in_store_redeem" data-role="button" data-theme="v" id="email" data-transition="fade"><img style="height:40px;width:43px;vertical-align:middle;" src='http://api.venngo.com/start/images/app/icon_mobile_email.png' /> redeem by email</a>
 				</div>
 
 				<div id="valid_green" style="margin-top:12px;margin-bottom:6px;">more detail</div>
@@ -238,23 +238,22 @@
 							<div style="background-color:#fff;margin-bottom:3px;width:86px;height:86px;overflow:hidden;border:solid 1px #cdd7dd;padding:3px;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;">
 								<table height="86" width="86">
 								<tr>
-								<td align="center" valign="middle"><img id='in_store_perk_logo' width="80" /></td>
+								<td align="center" valign="middle"><img id='perk_logo' width="80" /></td>
 								</tr>
 								</table>
 							</div>								
 						</td>
-						<td id="perk_code" valign="middle" style="display:hidden">
+						<td valign="middle">
 							<div id="valid_green" style="margin-top:12px;">in store <i>perk</i> code:</div>
-							<div class="perk_tagline"></div>
+							<div id="perk_code" class="perk_tagline"></div>
 						</td>
 					</tr>
 				</table>				
-				<div id="in_store_tagline" class="perk_tagline"></div><br />
-				<span id="in_store_code"></span>
+				<div id="in_store_tagline" class="perk_tagline"></div>
 			</div>
 			<div style="padding:12px;">
 				<div id="in_store_details" class="textNormal" style="color:white;"></div>
-				<div id="in_store_mobile_device" style="display:hidden;font-family:Arial, Helvetica, sans-serif;font-size: 8pt;line-height:10pt;color:#587f9e;padding:6px;margin:12px 0px 12px 0; -moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;background-color: #FFFFFF;-webkit-box-shadow: 0px 3px 5px #6a9062;">
+				<div style="font-family:Arial, Helvetica, sans-serif;font-size: 8pt;line-height:10pt;color:#587f9e;padding:6px;margin:12px 0px 12px 0; -moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;background-color: #FFFFFF;-webkit-box-shadow: 0px 3px 5px #6a9062;">
 					<table>
 						<tr>
 							<td><div style="padding-right: 10px;"><img src="http://cache.venngo.com/global/images/perk_mobile.gif" /></div></td>
@@ -300,137 +299,36 @@
 							<div style="background-color:#fff;margin-bottom:3px;width:86px;height:86px;overflow:hidden;border:solid 1px #cdd7dd;padding:3px;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;">
 								<table height="86" width="86">
 								<tr>
-								<td align="center" valign="middle"><img id='online_perk_logo' width="80" /></td>
+								<td align="center" valign="middle"><img id='perk_logo' width="80" /></td>
 								</tr>
 								</table>
 							</div>								
 						</td>
-						<td id="online_perk_code" valign="middle" style="display:none">
+						<td valign="middle">
 							<div id="valid_green" style="margin-top:12px;">online <i>perk</i> code:</div>
-							<div class="online_perk_code"></div>
+							<div id="perk_code" class="perk_tagline">123412341234</div>
 						</td>
 					</tr>
 				</table>				
-				<div id="online_perk_tagline" class="perk_tagline"></div><br />
-				<span id="online_code"></span>
-				
+				<div id="perk_tagline" class="perk_tagline">Before your next night at the movies be sure to buy your discounted Empire Theatres movie tickets and save over $20 based on an average purchase of 8 tickets with LetterMail postage - a savings of over 20%. They are just a click away and we'll deliver them right to your door.</div>
 				<a href="#leaveAlert" data-role="button" data-rel="dialog" data-transition="pop" data-theme="v">visit website to redeem</a>
 			</div>
 			<div style="padding:12px;">
-				<div id="online_perk_details" class="textNormal" style="color:white;"></div>
-				
+				<div id="perk_details" class="textNormal" style="color:white;">La Vie en Rose is your destination for everyday essentials, lounging looks or gift ideas. Shop online or in store! Offer valid on regular priced and sale merchandise, before tax. Cannot be combined with any other promotion and is not valid to purchase gift cards or Roses Of Hope Foundation items.</div>
+				<div class="textNormal" style="color:white;">Standard Desktop Instructions (for reference only)</div>	
+			
 				<div>
 					<div id="valid_green" style="color:white;margin-top:12px;">online</div>
-					<ol id="online_instructions" class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;"></ol>
+					<ol class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;">
+						<li>Click the "www" icon.</li>
+						<li>A message will appear stating that you will now be leaving the site in order to take advantage of the perk.</li>
+						<li>Click "continue" to take advantage of the perk, or "back" to stay on the site.</li>
+					</ol>
 				</div>				
 			</div>
 		</div>
 	</div>
 	<!-- ONLINE REDEMPTION END -->
-	
-	<!-- PHONE REDEMPTION START -->
-	<div id="phone_redeem" class="page_gradient" data-role="page" data-add-back-btn="true">
-		<div data-role="header" data-theme="v" class="venngoIcons"> 
-			<h1 id='pg_redeem_title'></h1> 
-	        <div id="tabs" data-id='nav' data-role="navbar">
-	            <ul>
-	                <li><a href="#pg_home" id="home" data-role="button" data-iconpos="top" data-icon="grid" data-transition="fade">Home</a></li>
-	                <li><a href="#pg_map" id="map" data-role="button" data-iconpos="top" data-icon="home" data-transition="fade">Map</a></li>
-	                <li><a href="#pg_cats" id="cats" data-role="button" data-iconpos="top" data-icon="star" data-transition="fade">Categories</a></li>
-	                <li><a href="#pg_favourite" id="favs" data-role="button" data-iconpos="top" data-icon="plus" data-transition="fade">Favourites</a></li>
-	                <li><a href="#pg_settings" id="settings" data-role="button" data-iconpos="top" data-icon="gear" data-transition="fade">Settings</a></li>
-	            </ul>
-	        </div>
-	    </div>
-	    <div class="remove_padding" data-role="content">
-			<div id="redeem_box">
-				<img id='site_logo' style="margin-top:3px;" src='http://cache.venngo.com/global/logos/site/logo000000316.png' />	
-				<table width="100%" border="0" style="margin-left:-4px;">
-					<tr>
-						<td width="110">
-							<div style="background-color:#fff;margin-bottom:3px;width:86px;height:86px;overflow:hidden;border:solid 1px #cdd7dd;padding:3px;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;">
-								<table height="86" width="86">
-								<tr>
-								<td align="center" valign="middle"><img id='phone_perk_logo' width="80" /></td>
-								</tr>
-								</table>
-							</div>								
-						</td>
-						<td id="phone_perk_code" valign="middle" style="display:none">
-							<div id="valid_green" style="margin-top:12px;">phone <i>perk</i> code:</div>
-							<div class="phone_perk_code"></div>
-						</td>
-					</tr>
-				</table>				
-				<div id="phone_perk_tagline" class="perk_tagline"></div><br />
-				<span id="phone_code"></span>
-				
-				<a id="phone_link" data-role="button" data-rel="dialog" data-transition="pop" data-theme="v"></a>
-				
-			</div>
-			<div style="padding:12px;">
-				<div id="phone_perk_details" class="textNormal" style="color:white;"></div>	
-			
-				<div>
-					<div id="valid_green" style="color:white;margin-top:12px;">by phone</div>
-					<ol id="phone_instructions" class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;"></ol>
-				</div>				
-			</div>
-		</div>
-	</div>
-	<!-- PHONE REDEMPTION END -->
-	
-	<!-- EMAIL REDEMPTION START -->
-	<div id="email_redeem" class="page_gradient" data-role="page" data-add-back-btn="true">
-		<div data-role="header" data-theme="v" class="venngoIcons"> 
-			<h1 id='pg_redeem_title'></h1> 
-	        <div id="tabs" data-id='nav' data-role="navbar">
-	            <ul>
-	                <li><a href="#pg_home" id="home" data-role="button" data-iconpos="top" data-icon="grid" data-transition="fade">Home</a></li>
-	                <li><a href="#pg_map" id="map" data-role="button" data-iconpos="top" data-icon="home" data-transition="fade">Map</a></li>
-	                <li><a href="#pg_cats" id="cats" data-role="button" data-iconpos="top" data-icon="star" data-transition="fade">Categories</a></li>
-	                <li><a href="#pg_favourite" id="favs" data-role="button" data-iconpos="top" data-icon="plus" data-transition="fade">Favourites</a></li>
-	                <li><a href="#pg_settings" id="settings" data-role="button" data-iconpos="top" data-icon="gear" data-transition="fade">Settings</a></li>
-	            </ul>
-	        </div>
-	    </div>
-	    <div class="remove_padding" data-role="content">
-			<div id="redeem_box">
-				<img id='site_logo' style="margin-top:3px;" src='http://cache.venngo.com/global/logos/site/logo000000316.png' />	
-				<table width="100%" border="0" style="margin-left:-4px;">
-					<tr>
-						<td width="110">
-							<div style="background-color:#fff;margin-bottom:3px;width:86px;height:86px;overflow:hidden;border:solid 1px #cdd7dd;padding:3px;-moz-border-radius: 8px;-khtml-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;">
-								<table height="86" width="86">
-								<tr>
-								<td align="center" valign="middle"><img id='email_perk_logo' width="80" /></td>
-								</tr>
-								</table>
-							</div>								
-						</td>
-						<td id="email_perk_code" valign="middle" style="display:none">
-							<div id="valid_green" style="margin-top:12px;">email <i>perk</i> code:</div>
-							<div class="email_perk_code"></div>
-						</td>
-					</tr>
-				</table>				
-				<div id="email_perk_tagline" class="perk_tagline"></div><br />
-				<span id="email_code"></span>
-				
-				<a id="email_link" data-role="button" data-rel="dialog" data-transition="pop" data-theme="v"></a>
-				
-			</div>
-			<div style="padding:12px;">
-				<div id="email_perk_details" class="textNormal" style="color:white;"></div>	
-			
-				<div>
-					<div id="valid_green" style="color:white;margin-top:12px;">by email</div>
-					<ol id="email_instructions" class="textNormal" style="list-style-type: decimal;color:#ffffff; list-style-position:outside;"></ol>
-				</div>				
-			</div>
-		</div>
-	</div>
-	<!-- EMAIL REDEMPTION END -->
 	
 	<!-- ONLINE LEAVE ALERT START -->
 	<div id="leaveAlert" data-role="page" data-theme="v">
