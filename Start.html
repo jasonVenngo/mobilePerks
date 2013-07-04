@@ -11,8 +11,13 @@
  	<link rel="stylesheet" type="text/css" href="css/jquery-mobile-swatch-v.css"/>
 	
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
-
-	<script type="text/javascript" src="js/jquery.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.js"></script> 
+	<script type="text/javascript">
+ 	$(document).bind("mobileinit", function() {
+ 		$.mobile.page.prototype.options.addBackBtn = true;
+ }); 
+</script>  
 	<script type="text/javascript" src="js/jqm.js"></script>
 	<script type="text/javascript" src="js/map.js"></script>
 	<script type="text/javascript" src="js/start.js"></script>
@@ -108,8 +113,8 @@
 	    	</ul>
 	    </div>
 	</div>
-
-	<div id="pg_cats_content" data-role="page" data-add-back-btn="true">
+	
+	<div id="pg_clist" data-role="page">
 		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1 id='pg_cats_title'>Categories</h1> 
 	        <div id="tabs" data-id='nav' data-role="navbar">

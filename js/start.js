@@ -42,7 +42,7 @@
 			
 			return $.parseJSON( user_data );
 		}
-
+		
 		$( "#pg_login" ).live(
 			'pageinit',
 			function( event ) 
@@ -488,7 +488,7 @@
 					}
 				});
 			}
-		);	
+		);
 		
 		$( "#pg_cats" ).live(
 			'pagebeforeshow',
@@ -525,90 +525,106 @@
 							data,
 							function( index, category )
 							{
-								$( '#lst_cats' ).append( '<li data-identity="' + category.category_id + '"><a href="#pg_clist"><img src="http://api.venngo.com/start/images/app/categories/icon' + category.category_key + '_jumbo.png" /><h3>' + category.long_name + '</h3></a></li>' );
+								$( '#lst_cats' ).append( '<li data-identity="' + category.category_id + '"><a href="#" id="' + category.category_id + '"><img src="http://api.venngo.com/start/images/app/categories/icon' + category.category_key + '_jumbo.png" /><h3>' + category.long_name + '</h3></a></li>' );
 							}
 						);
 						
-						$( "#lst_cats" ).listview( "refresh" );
+						$( '#lst_cats li a' ).each(function() {
+							var category_id = $( this ).attr( 'id' );
+							
+							$( document ).on('click', '#' + category_id, function(event) {
+								if(event.handled !== true) {
+									listObject.cat_id = category_id;
+									
+									$.mobile.changePage( "#pg_clist", { transition: "slide"} );
+									event.handled = true;
+								}
+							});
+						});
 						
 						$.mobile.hidePageLoadingMsg();
 						
-						$( '#lst_cats li' ).click(
-							function( event )
-							{
-								$('#lst_clist').empty();
-								
-								$.mobile.showPageLoadingMsg( 
-									'b', 
-									'Finding Perks...'
-								);
-								
-								$( '#pg_cats_title' ).html( $( this ).find( 'h3' ).text() );
-								
-								$.ajax({
-									type: 'POST',
-									url: app_data['api_url'] + app_data['category_url'] + $( this ).data( "identity" ) + '/0/',
-									data: {
-						    			longitude: user_data.location_longitude,
-										latitude: user_data.location_latitude,
-										range: user_data.location_range,
-									},
-									beforeSend: function( xhr )
-									{
-										xhr.setRequestHeader( "Authorization", authHeader );
-									},
-									error: function( xhr, status, error )
-									{
-										alert( xhr.responseText + ' ' + status + ' ' + error );
-									},
-									dataType: 'json',
-									success: function( data ) 
-									{
-										$('#lst_cats').empty();
-		
-										$.each( 
-											data,
-											function( index, perk )
-											{
-												console.log(perk);
-												var style = null;
-												
-												if ( index == 0 && perk.tier == 1 )
-													style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
-												
-												switch( parseInt(perk.tier) )
-												{
-												case 3:
-													$( '#lst_clist' ).append( '<li class="tier_3" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
-													break;
-												case 2:
-													$( '#lst_clist' ).append( '<li class="tier_2" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
-													break;
-												default:
-													$( '#lst_clist' ).append( '<li class="tier_1" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
-												}
-												
-											}
-										);
-										
-										$( "#lst_clist" ).listview( "refresh" );
-										
-										$( '#lst_clist li' ).click(
-											function( event )
-											{
-												$( '#pg_detail' ).data( 'identity', $( this ).data( "identity" ) );
-												
-												$( '#pg_detail_title' ).text( $( this ).find( 'h3' ).text() );
-											}
-										);
-										
-										$.mobile.hidePageLoadingMsg();
-									}
-								});		
-							}
-						);
+						$( "#lst_cats" ).listview( "refresh" );
 					}
 				});				
+			}
+		);
+		
+		var listObject = {
+			cat_id : null
+		}
+		
+		$( '#pg_clist' ).live(
+			'pagebeforeshow',
+			function( event )
+			{
+				$( '#lst_clist' ).empty();
+				
+				var user_data = check_auth();
+				
+				if( listObject.cat_id == undefined )
+					history.back();
+				
+				var authHeader = 'OAuth, auth_token=' + user_data.auth_token + ', public_key=' + app_data['public_key'] + ', public_secret=' + app_data['public_secret'];
+				
+				$.mobile.showPageLoadingMsg( 
+						'b', 
+						'Finding Perks...'
+					);
+				
+				$.ajax(
+				{
+					type: 'POST',
+					url: app_data['api_url'] + app_data['category_url'] + listObject.cat_id + '/0/',
+					data: {
+		    			longitude: user_data.location_longitude,
+						latitude: user_data.location_latitude,
+						range: user_data.location_range,
+					},
+					beforeSend: function( xhr )
+					{
+						xhr.setRequestHeader( "Authorization", authHeader );
+					},
+					error: function( xhr, status, error )
+					{
+						alert( xhr.responseText + ' ' + status + ' ' + error );
+					},
+					dataType: 'json',
+					success: function( data )
+					{
+						$.each(	data, function( index, perk )
+						{
+							//console.log(perk);
+							var style = null;
+							
+							if ( index == 0 && perk.tier == 1 )
+								style = 'style="background: url( http://cache.venngo.com/global/tier1/' + perk.folder + '/images/featureMobileGradient.jpg );"';
+							
+							switch( parseInt(perk.tier) )
+							{
+								case 3:
+									$( '#lst_clist' ).append( '<li class="tier_3" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+									break;
+								case 2:
+									$( '#lst_clist' ).append( '<li class="tier_2" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+									break;
+								default:
+									$( '#lst_clist' ).append( '<li class="tier_1" data-identity="' + perk.perk_id + '" ' + style + '><a href="#pg_detail"><img src="' + perk.logo + '" /><h3>' + perk.title + '</h3><p>' + perk.tagline + '</p></a></li>' );
+							}
+						}); //end each
+						
+						$( '#lst_clist li' ).click( function( event )
+						{
+							$( '#pg_detail' ).data( 'identity', $( this ).data( "identity" ) );
+							
+							$( '#pg_detail_title' ).text( $( this ).find( 'h3' ).text() );
+						});
+						
+						$.mobile.hidePageLoadingMsg();
+						
+						$( "#lst_clist" ).listview( "refresh" );
+					} //end success function
+				});
 			}
 		);
 		
@@ -1418,7 +1434,7 @@
 							data,
 							function( index, perk )
 							{
-								$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favbutton_selected.png" /><h3>' + perk.title + '</h3></a></li>' );
+								//$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
 							}
 						);
 						
