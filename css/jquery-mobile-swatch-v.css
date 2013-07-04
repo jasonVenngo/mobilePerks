@@ -373,3 +373,7 @@ ul#lst_favourite li img.ui-li-thumb {
 	margin-top:0px;
 	top:0px;
 }
+
+span.ui-icon.ui-icon-cash_register { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#store span.ui-btn-inner {padding:20px;}
+#store .ui-icon { background:  url('../images/app/icon_mobile_instore.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
