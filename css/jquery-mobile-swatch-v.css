@@ -414,3 +414,13 @@ span.ui-icon.ui-icon-icon_search { width: 24px!important; height: 24px!important
 #searchBtn span.ui-btn-inner {padding:20px;top:0px;}
 #searchBtn .ui-icon { background:  url('../images/app/search.png') 50% 50% no-repeat; background-size: 18px 18px; height:20px; top:50%; left:12px; }
 
+a#pg_settings_logout {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #e00000 /*{a-bdown-background-start}*/), to( #af0000 /*{a-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #e00000 /*{a-bdown-background-start}*/, #af0000 /*{a-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #e00000 /*{a-bdown-background-start}*/, #af0000 /*{a-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #e00000 /*{a-bdown-background-start}*/, #af0000 /*{a-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #e00000 /*{a-bdown-background-start}*/, #af0000 /*{a-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #e00000 /*{a-bdown-background-start}*/, #af0000 /*{a-bdown-background-end}*/);
+}
+#pg_settings_logout span.ui-btn-inner {padding:20px;}
+

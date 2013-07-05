@@ -417,7 +417,7 @@
 					'Finding Perks...'
 				);
 				
-				$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
+				$( '#map_canvas' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 100 );
 
 				var map = new google.maps.Map(
 					document.getElementById("map_canvas"),
