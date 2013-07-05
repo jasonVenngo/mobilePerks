@@ -1745,3 +1745,8 @@
 				);
 			}
 		);		
+
+		function showSearch(){
+			document.getElementById('searchField').style.display = ''; 
+		}
+		

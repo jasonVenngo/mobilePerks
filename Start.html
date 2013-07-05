@@ -58,8 +58,8 @@
 	<div id="pg_home" data-role="page" data-add-back-btn="false">
  		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1 id='pg_home_title'>Home</h1>
-			<a href="#" data-role="button" data-theme="v" class="ui-btn-right" data-icon="icon_search" id="search"></a>
-			<!-- <input type="search" id="fld_search" value="" data-theme="b" />  -->
+			<a href="#" data-role="button" data-theme="v" class="ui-btn-right" data-icon="icon_search" id="searchBtn" onClick="showSearch()"></a>
+			<div id="searchField" style="display:none;"><input type="search" id="fld_search" value="" data-theme="b" /></div>
 	        <div id="tabs" data-id='nav' data-role="navbar">
 	            <ul>
 	                <li><a href="#pg_home" id="home" data-role="button" data-iconpos="top" data-icon="home" data-transition="fade"></a></li>
