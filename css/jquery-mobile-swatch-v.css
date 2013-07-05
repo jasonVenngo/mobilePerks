@@ -195,54 +195,51 @@ this is a test
 	margin-left:4px;
 }
 
-
-#lst_clist li:first-child {  /* sets the first row taller than the rest to accomodate featured perk.  */
+li.tier_1:first-child {  /* sets the first row taller than the rest to accomodate featured perk.  */
    height: 140px;
-   background-color:blue;
 }
 
-#lst_clist li:first-child .ui-link-inherit { 
-	padding-left:140px;
-	padding-top:8px;
-	height:120px;
+li.tier_1:first-child .ui-link-inherit { 
+	min-height: 140px;
+	padding-left: 140px;
 }
 
-#lst_clist li:first-child .ui-li-thumb {  /* sets the first icon larger then the rest of the list to accomodate featured perk.  */
+li.tier_1:first-child .ui-li-thumb {  /* sets the first icon larger then the rest of the list to accomodate featured perk.  */
+	margin-top: 8px;
 	max-height: 120px;
 	max-width: 120px;
-	padding-top:4px;
-	padding-left:4px;
+	margin-left:4px;
 }
 
-#lst_clist li:first-child .ui-li-desc {   /* sets the first description white and strips effect.  */
+li.tier_1:first-child .ui-li-desc {   /* sets the first description white and strips effect.  */
 	color:white;
 	text-decoration: none;
 	text-shadow: none;
 }
 
-#lst_clist li:first-child .ui-li-heading {  /* sets the first heading white and strips effect.  */
+li.tier_1:first-child .ui-li-heading {  /* sets the first heading white and strips effect.  */
 	color:white;
 	text-decoration: none;
 	text-shadow: none;
 }
 
-#lst_clist li .ui-li-heading {   /* sets the rest of the titles to dark blue.  */
+li.tier_1 .ui-li-heading {   /* sets the rest of the titles to dark blue.  */
 	color:#254f71;
 	text-decoration: none;
 	text-shadow: none;
 }
 
-#lst_clist li .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
+li.tier_1 .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
 	color:#f1542c;
 	text-decoration: none;
 	text-shadow: none;
 }
 
-#lst_clist li {  /* sets the first row taller than the rest to accomodate featured perk.  */
+li.tier_1 li {  /* sets the first row taller than the rest to accomodate featured perk.  */
    height: 90px;
 }
 
-#lst_clist li .ui-li-thumb {  /* sets the rest of the icons with a bit of top margin  */
+li.tier_1 .ui-li-thumb {  /* sets the rest of the icons with a bit of top margin  */
 	margin-top:4px;
 	margin-left:4px;
 }
@@ -373,3 +370,42 @@ ul#lst_favourite li img.ui-li-thumb {
 	margin-top:0px;
 	top:0px;
 }
+
+span.ui-icon.ui-icon-icon_instore { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#store span.ui-btn-inner {padding:20px;}
+#store .ui-icon { background:  url('../images/app/icon_mobile_instore.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_www { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#online span.ui-btn-inner {padding:20px;}
+#online .ui-icon { background:  url('../images/app/icon_mobile_online.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_phone { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#phone span.ui-btn-inner {padding:20px;}
+#phone .ui-icon { background:  url('../images/app/icon_mobile_phone.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_email { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#email span.ui-btn-inner {padding:20px;}
+#email .ui-icon { background:  url('../images/app/icon_mobile_email.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_locate { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#perk_locate span.ui-btn-inner {padding:20px;}
+#perk_locate .ui-icon { background:  url('../images/app/icon_perk_locate.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_terms { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#perkTerms span.ui-btn-inner {padding:20px;}
+#perkTerms .ui-icon { background:  url('../images/app/icon_terms.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_sonar { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#mylocation span.ui-btn-inner {padding:20px;}
+#mylocation .ui-icon { background:  url('../images/app/icon_sonar.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+#termsUse span.ui-btn-inner {padding:20px;}
+#termsUse .ui-icon { background:  url('../images/app/icon_terms.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_privacy { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#privacy span.ui-btn-inner {padding:20px;}
+#privacy .ui-icon { background:  url('../images/app/icon_lock.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_info { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#about span.ui-btn-inner {padding:20px;}
+#about .ui-icon { background:  url('../images/app/icon_info.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
