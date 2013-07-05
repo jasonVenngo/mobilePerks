@@ -235,7 +235,7 @@ li.tier_1 .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
 	text-shadow: none;
 }
 
-li.tier_1 li {  /* sets the first row taller than the rest to accomodate featured perk.  */
+li.tier_1 {  /* sets the first row taller than the rest to accomodate featured perk.  */
    height: 90px;
 }
 
