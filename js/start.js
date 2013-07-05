@@ -479,7 +479,7 @@
 											infowindow = new google.maps.InfoWindow();
 										}
 										
-										infowindow.setContent('<div style="float: left;"><a href="#pg_detail"><img src="' + perk.logo + '" width="60" /></a></div><div style="float: right;">' + perk.title + '<br /><a href="#pg_detail">' + perk.address_1 + ', ' + perk.prov + '</a></div>');
+										infowindow.setContent('<div style="float: left;"><a href="#pg_detail"><img src="' + perk.logo + '" width="30" /></a></div><div style="float: right;">' + perk.title + '<br /><a href="#pg_detail">' + perk.address_1 + ', ' + perk.prov + '</a></div>');
 										
 										infowindow.open( map, marker );
 									}
@@ -1750,3 +1750,8 @@
 				);
 			}
 		);		
+
+		function showSearch(){
+			document.getElementById('searchField').style.display = ''; 
+		}
+		

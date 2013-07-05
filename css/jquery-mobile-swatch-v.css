@@ -235,7 +235,7 @@ li.tier_1 .ui-li-desc {   /* sets the rest of the descriptions to orange.  */
 	text-shadow: none;
 }
 
-li.tier_1 li {  /* sets the first row taller than the rest to accomodate featured perk.  */
+li.tier_1 {  /* sets the first row taller than the rest to accomodate featured perk.  */
    height: 90px;
 }
 
@@ -246,12 +246,12 @@ li.tier_1 .ui-li-thumb {  /* sets the rest of the icons with a bit of top margin
 
 div .ui-btn-inner .ui-li {padding:0px;}
 
-.venngoIcons .ui-btn .ui-btn-inner  { padding-top: 40px !important; margin-left:0px; }
-span.ui-icon.ui-icon-home { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-span.ui-icon.ui-icon-map { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-span.ui-icon.ui-icon-cats { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-span.ui-icon.ui-icon-favs { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-span.ui-icon.ui-icon-settings { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+.venngoIcons .ui-btn .ui-btn-inner  { padding-top: 45px !important; margin-left:0px; }
+span.ui-icon.ui-icon-home { width: 40px!important; height: 40px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-map { width: 40px!important; height: 40px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-cats { width: 40px!important; height: 40px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-favs { width: 40px!important; height: 40px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+span.ui-icon.ui-icon-settings { width: 40px!important; height: 40px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 
 .venngoIcons .ui-btn-right .ui-btn-inner {padding-top: 5px !important; margin-left:5px;}
 .venngoIcons .ui-btn-right .ui-icon { height: 18px!important; margin-left: 0px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 36px !important; border-radius: 36px !important; }
@@ -260,11 +260,11 @@ span.ui-icon.ui-icon-settings { width: 30px!important; height: 30px!important; m
 
 #tabs {margin-left:0px; margin-right:0px;}
 
-#home .ui-icon { background:  url(../images/app/tabs/home.png) 50% 50% no-repeat; background-size: 25px 25px; }
-#map .ui-icon { background:  url(../images/app/tabs/map.png) 50% 50% no-repeat; background-size: 25px 27px;  }
-#cats .ui-icon { background:  url(../images/app/tabs/cats.png) 50% 50% no-repeat;  background-size: 25px 24px; }
-#favs .ui-icon { background:  url(../images/app/tabs/favs.png) 50% 50% no-repeat;  background-size: 17px 27px; }
-#settings .ui-icon { background:  url(../images/app/tabs/settings.png) 50% 50% no-repeat;  background-size: 25px 25px; }
+#home .ui-icon { background:  url(../images/app/tabs/home.png) 50% 50% no-repeat; background-size: 40px 40px; }
+#map .ui-icon { background:  url(../images/app/tabs/map.png) 50% 50% no-repeat; background-size: 40px 40px;  }
+#cats .ui-icon { background:  url(../images/app/tabs/cats.png) 50% 50% no-repeat;  background-size: 40px 40px; }
+#favs .ui-icon { background:  url(../images/app/tabs/favs.png) 50% 50% no-repeat;  background-size: 40px 40px; }
+#settings .ui-icon { background:  url(../images/app/tabs/settings.png) 50% 50% no-repeat;  background-size: 40px 40px; }
 
 #perk_tagline {	
 	font-size:14px;
@@ -409,3 +409,8 @@ span.ui-icon.ui-icon-icon_privacy { width: 40px!important; height: 40px!importan
 span.ui-icon.ui-icon-icon_info { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 #about span.ui-btn-inner {padding:20px;}
 #about .ui-icon { background:  url('../images/app/icon_info.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_search { width: 24px!important; height: 24px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#searchBtn span.ui-btn-inner {padding:20px;top:0px;}
+#searchBtn .ui-icon { background:  url('../images/app/search.png') 50% 50% no-repeat; background-size: 18px 18px; height:20px; top:50%; left:12px; }
+
