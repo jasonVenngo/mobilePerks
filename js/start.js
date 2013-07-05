@@ -1616,7 +1616,7 @@
 						{
 							$.mobile.changePage( '#dlg_expired' );
 						}
-					},
+					}, 
 					success: function( data ) 
 					{
 						$( '#pg_terms_content' ).html( data );
