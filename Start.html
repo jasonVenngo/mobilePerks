@@ -16,8 +16,8 @@
 	<script type="text/javascript">
  	$(document).bind("mobileinit", function() {
  		$.mobile.page.prototype.options.addBackBtn = true;
- }); 
-</script>  
+ 	}); 
+	</script>  
 	<script type="text/javascript" src="js/jqm.js"></script>
 	<script type="text/javascript" src="js/map.js"></script>
 	<script type="text/javascript" src="js/start.js"></script>
@@ -55,7 +55,7 @@
 	    </div>
 	</div>
 	
-	<div id="pg_home" data-role="page">
+	<div id="pg_home" data-role="page" data-add-back-btn="false">
  		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1 id='pg_home_title'>Home</h1>
 			<input type="search" id="fld_search" value="" data-theme="b" />
@@ -75,7 +75,7 @@
 	    </div>
 	</div>
 	
-	<div id="pg_map" data-role="page">
+	<div id="pg_map" data-role="page" data-add-back-btn="false">
 		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1 id='pg_map_title'>Map</h1> 
 	        <div id="tabs" data-id='nav' data-role="navbar">
@@ -94,7 +94,7 @@
 	</div>
 
 	
-	<div id="pg_cats" data-role="page">
+	<div id="pg_cats" data-role="page" data-add-back-btn="false">
 		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1 id='pg_cats_title'>Categories</h1> 
 	        <div id="tabs" data-id='nav' data-role="navbar">
@@ -497,7 +497,7 @@
 		</div>
 	</div>
 
-	<div id="pg_favourite" data-role="page" data-add-back-btn="true">
+	<div id="pg_favourite" data-role="page" data-add-back-btn="false">
 		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1>Favourites</h1> 
 	        <div id="tabs" data-id='nav' data-role="navbar">
@@ -516,7 +516,7 @@
 	    </div>
 	</div>
 
-	<div id="pg_settings" data-role="page" data-add-back-btn="true" data-theme="v">
+	<div id="pg_settings" data-role="page" data-add-back-btn="false" data-theme="v">
 		<div data-role="header" data-theme="v" class="venngoIcons"> 
 			<h1>Settings</h1> 
 	        <div id="tabs" data-id='nav' data-role="navbar">
