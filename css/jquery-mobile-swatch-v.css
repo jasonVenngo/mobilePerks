@@ -409,3 +409,8 @@ span.ui-icon.ui-icon-icon_privacy { width: 40px!important; height: 40px!importan
 span.ui-icon.ui-icon-icon_info { width: 40px!important; height: 40px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 #about span.ui-btn-inner {padding:20px;}
 #about .ui-icon { background:  url('../images/app/icon_info.png') 50% 50% no-repeat; background-size: 40px 40px; height:50px; top:18px; }
+
+span.ui-icon.ui-icon-icon_search { width: 24px!important; height: 24px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#search span.ui-btn-inner {padding:20px;top:0px;}
+#search .ui-icon { background:  url('../images/app/search.png') 50% 50% no-repeat; background-size: 18px 18px; height:20px; top:50%; }
+
