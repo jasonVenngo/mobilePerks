@@ -1434,7 +1434,10 @@
 							data,
 							function( index, perk )
 							{
-								//$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
+								if ( perk.id )
+									$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
+								else
+									$( '#lst_favourite' ).append( '<li><h3>' + perk + '</h3></li>' );
 							}
 						);
 						
