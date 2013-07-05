@@ -417,8 +417,11 @@
 					'Finding Perks...'
 				);
 				
-				$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
-
+				//$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
+				$( '#map_canvas' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 125 );
+				//console.log($(window).height());
+				//console.log($(document).height());
+				
 				var map = new google.maps.Map(
 					document.getElementById("map_canvas"),
 					{
@@ -494,6 +497,8 @@
 			'pagebeforeshow',
 			function( event ) 
 			{
+				$( '#lst_cats' ).empty();
+				
 				var user_data = check_auth();
 				
 				var authHeader = 'OAuth, auth_token=' + user_data.auth_token
@@ -1434,7 +1439,7 @@
 							data,
 							function( index, perk )
 							{
-								if ( perk.id )
+								if ( perk.perk_id )
 									$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
 								else
 									$( '#lst_favourite' ).append( '<li><h3>' + perk + '</h3></li>' );
