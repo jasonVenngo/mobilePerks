@@ -417,8 +417,7 @@
 					'Finding Perks...'
 				);
 				
-				//$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
-				$( '#map_canvas' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 100 );
+				$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
 
 				var map = new google.maps.Map(
 					document.getElementById("map_canvas"),
@@ -495,8 +494,6 @@
 			'pagebeforeshow',
 			function( event ) 
 			{
-				$( '#lst_cats' ).empty();
-				
 				var user_data = check_auth();
 				
 				var authHeader = 'OAuth, auth_token=' + user_data.auth_token
@@ -539,7 +536,7 @@
 								if(event.handled !== true) {
 									listObject.cat_id = category_id;
 									
-									$.mobile.changePage( "#pg_clist", { transition: "fade"} );
+									$.mobile.changePage( "#pg_clist", { transition: "slide"} );
 									event.handled = true;
 								}
 							});
@@ -1252,8 +1249,7 @@
 					
 				$( '#pg_locate_title' ).text( $( '#pg_detail_title' ).text() );
 
-				$( '#map_perk' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 100 );
-				//$( '#map_perk' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 100 );
+				$( '#map_perk' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
 
 				var map = new google.maps.Map(
 					document.getElementById("map_perk"),
@@ -1268,6 +1264,8 @@
 					position: new google.maps.LatLng( user_data.location_latitude, user_data.location_longitude ),
 					map: map
 				});
+				
+				google.maps.event.trigger(map, 'resize');
 				
 				$.ajax({
 					type: 'POST',
@@ -1315,8 +1313,6 @@
 								);
 	        				}
 	        			);
-						
-						google.maps.event.trigger(map, 'resize');
 
 						$.mobile.hidePageLoadingMsg();
 					}
@@ -1394,7 +1390,6 @@
 					},
 					success: function( term_html ) 
 					{
-						console.log(term_html);
 						$( '#pg_perkTerms_content' ).html( term_html );
 					}
 				});
@@ -1439,7 +1434,7 @@
 							data,
 							function( index, perk )
 							{
-								if ( perk.perk_id )
+								if ( perk.id )
 									$( '#lst_favourite' ).append( '<li data-identity="' + perk.perk_id + '"><a href="#pg_detail"><img src="http://api.venngo.com/start/images/app/favicon.png" /><h3>' + perk.title + '</h3></a></li>' );
 								else
 									$( '#lst_favourite' ).append( '<li><h3>' + perk + '</h3></li>' );
@@ -1752,6 +1747,6 @@
 		);		
 
 		function showSearch(){
-			$( '#searchField' ).toggle();
+			document.getElementById('searchField').style.display = ''; 
 		}
 		
