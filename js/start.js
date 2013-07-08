@@ -418,10 +418,8 @@
 				);
 				
 				//$( '#map_canvas' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
-				$( '#map_canvas' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 125 );
-				//console.log($(window).height());
-				//console.log($(document).height());
-				
+				$( '#map_canvas' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 100 );
+
 				var map = new google.maps.Map(
 					document.getElementById("map_canvas"),
 					{
@@ -541,7 +539,7 @@
 								if(event.handled !== true) {
 									listObject.cat_id = category_id;
 									
-									$.mobile.changePage( "#pg_clist", { transition: "slide"} );
+									$.mobile.changePage( "#pg_clist", { transition: "fade"} );
 									event.handled = true;
 								}
 							});
@@ -1254,7 +1252,8 @@
 					
 				$( '#pg_locate_title' ).text( $( '#pg_detail_title' ).text() );
 
-				$( '#map_perk' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 30 );
+				$( '#map_perk' ).height( $( document ).height() - $( '#map_canvas' ).position().top - 100 );
+				//$( '#map_perk' ).height( $( window ).height() - $( '#map_canvas' ).position().top - 100 );
 
 				var map = new google.maps.Map(
 					document.getElementById("map_perk"),
@@ -1269,8 +1268,6 @@
 					position: new google.maps.LatLng( user_data.location_latitude, user_data.location_longitude ),
 					map: map
 				});
-				
-				google.maps.event.trigger(map, 'resize');
 				
 				$.ajax({
 					type: 'POST',
@@ -1318,6 +1315,8 @@
 								);
 	        				}
 	        			);
+						
+						google.maps.event.trigger(map, 'resize');
 
 						$.mobile.hidePageLoadingMsg();
 					}
@@ -1395,6 +1394,7 @@
 					},
 					success: function( term_html ) 
 					{
+						console.log(term_html);
 						$( '#pg_perkTerms_content' ).html( term_html );
 					}
 				});
@@ -1752,6 +1752,6 @@
 		);		
 
 		function showSearch(){
-			document.getElementById('searchField').style.display = ''; 
+			$( '#searchField' ).toggle();
 		}
 		
